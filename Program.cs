@@ -11,21 +11,26 @@ namespace CreateStruct
         public string firstName;
         public string lastName;
         public int age;
-        public Person(string _firstName, string _lastName, int _age)
+        public Genders gender;
+
+        public enum Genders : int { Male, Female };
+
+        public Person(string _firstName, string _lastName, int _age, Genders _gender)
         {
-            firstName = _firstName;
-            lastName = _lastName; age = _age;
+            firstName = _firstName; lastName =
+            _lastName; age = _age; gender = _gender;
         }
         public override string ToString()
         {
-            return firstName + " " + lastName + ", age " + age;
+            return firstName + " " + lastName + " (" + gender + "), age " + age;
         }
     }
     class Program
     {
         static void Main(string[] args)
         {
-            Person p = new Person("Tony", "Allen", 32); Console.WriteLine(p);
+            Person p = new Person("Tony", "Allen", 32, Person.Genders.Male);
+            Console.WriteLine(p.ToString());
             Console.ReadLine();
         }
     }
